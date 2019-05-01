@@ -79,7 +79,6 @@ controller.on('rtm_close', function (bot) {
 /**
  * Core bot logic goes here!
  */
-// BEGIN EDITING HERE!
 
 controller.on('bot_channel_join', function (bot, message) {
     bot.reply(message, "I'm here!")
@@ -89,20 +88,21 @@ controller.hears('hello', 'direct_message', function (bot, message) {
     bot.reply(message, 'Hello!');
 });
 
+controller.hears('help', 'direct_message', function (bot, message) {
+    bot.reply(message, 'To save reminders, say \'Remind me to ...\'. To list them, ask \'Reminders?\'');
+});
 
-/**
- * AN example of what could be:
- * Any un-handled direct mention gets a reaction and a pat response!
- */
-//controller.on('direct_message,mention,direct_mention', function (bot, message) {
-//    bot.api.reactions.add({
-//        timestamp: message.ts,
-//        channel: message.channel,
-//        name: 'robot_face',
-//    }, function (err) {
-//        if (err) {
-//            console.log(err)
-//        }
-//        bot.reply(message, 'I heard you loud and clear boss.');
-//    });
-//});
+reminders = [];
+controller.hears('remind me to (.*)','direct_message',function(bot,message) {
+  var reminder = message.match[1]; //match[1] is the (.*) group. match[0] is the entire group (open the (.*) doors).
+  reminders.push(reminder);
+  bot.reply(message, 'Got it.');
+});
+
+controller.hears('reminders','direct_message',function(bot,message) {
+  if (Array.isArray(reminders) && reminders.length) {
+    bot.reply(message, reminders.join('\n'));
+  } else {
+    bot.reply(message, 'No reminders.');
+  }
+});

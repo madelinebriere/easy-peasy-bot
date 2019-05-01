@@ -1,7 +1,7 @@
 {
-  "name": "easy-peasy-bot",
+  "name": "simple-bot",
   "version": "1.0.0",
-  "description": "The awesomest bot evar.",
+  "description": "Example bot.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,18 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DEGoodmanWilson/easy-peasy-bot-app.git"
+    "url": "git+https://github.com/madelinebriere/easy-peasy-bot.git"
   },
   "keywords": [
     "slack",
     "bot"
   ],
-  "author": "D.E. Goodman-Wilson",
+  "author": "Madeline Briere",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DEGoodmanWilson/easy-peasy-bot-app/issues"
+    "url": "https://github.com/madelinebriere/easy-peasy-bot.git"
   },
-  "homepage": "https://github.com/DEGoodmanWilson/easy-peasy-bot-app#readme",
+  "homepage": "https://github.com/madelinebriere/easy-peasy-bot.git#readme",
   "engines": {
     "node": "5.1.1"
   },
